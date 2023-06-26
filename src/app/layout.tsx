@@ -1,4 +1,4 @@
-import { Navbar } from '@/components'
+import { Navbar, Providers } from '@/components'
 import { Toaster } from '@/components/ui/Toaster'
 import { cn } from '@/lib/utils'
 import '@/styles/globals.css'
@@ -26,16 +26,18 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-screen bg-slate-50 pt-12 antialiased">
-        {/* @ts-ignore server component */}
-        <Navbar />
+        <Providers>
+          {/* @ts-ignore server component */}
+          <Navbar />
 
-        {authModal}
+          {authModal}
 
-        <div className="container mx-auto h-full max-w-7xl pt-12">
-          {children}
-        </div>
+          <div className="container mx-auto h-full max-w-7xl pt-12">
+            {children}
+          </div>
 
-        <Toaster />
+          <Toaster />
+        </Providers>
       </body>
     </html>
   )
