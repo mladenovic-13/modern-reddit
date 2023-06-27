@@ -1,7 +1,9 @@
 import { SubscribeLeaveToggle } from '@/components'
+import { buttonVariants } from '@/components/ui/Button'
 import { getAuthSession } from '@/lib/auth'
 import { db } from '@/lib/db'
 import { format } from 'date-fns'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 interface ILayoutProps {
@@ -97,6 +99,16 @@ const Layout = async ({ children, params }: ILayoutProps) => {
                   isSubscribed={isSubscribed}
                 />
               ) : null}
+
+              <Link
+                className={buttonVariants({
+                  variant: 'outline',
+                  className: 'mb-6 w-full'
+                })}
+                href={`/r/${slug}/submit`}
+              >
+                Create Post
+              </Link>
             </dl>
           </div>
         </div>
