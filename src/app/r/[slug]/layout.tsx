@@ -57,7 +57,7 @@ const Layout = async ({ children, params }: ILayoutProps) => {
   })
 
   return (
-    <div className="mx-auto h-full max-w-7xl pt-12 sm:container">
+    <div className="mx-auto h-full max-w-7xl sm:container">
       <div>
         {/* TODO: Button to take us back */}
 
