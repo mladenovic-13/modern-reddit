@@ -4,6 +4,7 @@ import { FC } from 'react'
 
 // react-query client
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { SessionProvider } from 'next-auth/react'
 
 // react-query client
 const queryClient = new QueryClient()
@@ -14,7 +15,9 @@ interface IProvidersProps {
 
 const Providers: FC<IProvidersProps> = ({ children }) => {
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      <SessionProvider>{children}</SessionProvider>
+    </QueryClientProvider>
   )
 }
 

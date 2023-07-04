@@ -93,7 +93,7 @@ model Post {
   updatedAt   DateTime  @updatedAt
   author      User      @relation(fields: [authorId], references: [id])
   authorId    String
-  Subreddit   Subreddit @relation(fields: [subredditId], references: [id])
+  subreddit   Subreddit @relation(fields: [subredditId], references: [id])
   subredditId String
   comments    Comment[]
   votes       Vote[]

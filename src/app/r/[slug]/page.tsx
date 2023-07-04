@@ -1,4 +1,4 @@
-import { MiniCreatePost } from '@/components'
+import { MiniCreatePost, PostFeed } from '@/components'
 import { INFINITE_SCROLLING_PAGINATON_RESULTS } from '@/config'
 import { getAuthSession } from '@/lib/auth'
 import { db } from '@/lib/db'
@@ -25,7 +25,7 @@ const Page = async ({ params }: PageProps) => {
           author: true,
           votes: true,
           comments: true,
-          Subreddit: true
+          subreddit: true
         },
         take: INFINITE_SCROLLING_PAGINATON_RESULTS
       }
@@ -38,7 +38,7 @@ const Page = async ({ params }: PageProps) => {
     <>
       <h1 className="text-3xl font-bold md:text-4xl">r/{subreddit.name}</h1>
       <MiniCreatePost session={session} />
-      {/* TODO: Show posts in user feed */}
+      <PostFeed initialPosts={subreddit.posts} subredditName={subreddit.name} />
     </>
   )
 }
